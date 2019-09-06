@@ -641,11 +641,11 @@ else
 if not database:get(bot_id..'Start:Time'..msg.sender_user_id_) then
 local start = database:get(bot_id.."Start:Bot")  
 if start then 
-SourceBlack = start
+SourceBlackr = start
 else
-SourceBlack = '📌| مرحبا عزيزي ...'..'\n📮| انا بوت حماية كروبات '..'\n📫| اضفني الى مجموعتك وقم بترقيتي ادمن ويستطيع »{ منشئ او المشرفين } بتفعيل فقط '
+SourceBlackr = '📌| مرحبا عزيزي ...'..'\n📮| انا بوت حماية كروبات '..'\n📫| اضفني الى مجموعتك وقم بترقيتي ادمن ويستطيع »{ منشئ او المشرفين } بتفعيل فقط '
 end 
-send(msg.chat_id_, msg.id_, SourceBlack) 
+send(msg.chat_id_, msg.id_, SourceBlackr) 
 end
 end
 database:setex(bot_id..'Start:Time'..msg.sender_user_id_,300,true)
@@ -1494,7 +1494,7 @@ tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,chat)
 if database:sismember(bot_id..'Chek:Groups',msg.chat_id_) then
 send(msg.chat_id_, msg.id_,'🔖| المجموعه تم تفعيلها من قبل')
 else
-sendText(msg.chat_id_,'\n📫| تم تفعيل المجموعه \n📛| بواسطة »{ ['..string.sub(result.first_name_,0, 50)..'](tg://user?id='..result.id_..') }',msg.id_/2097152/0.5,'md')
+sendText(msg.chat_id_,'\n??| تم تفعيل المجموعه \n📛| بواسطة »{ ['..string.sub(result.first_name_,0, 50)..'](tg://user?id='..result.id_..') }',msg.id_/2097152/0.5,'md')
 database:sadd(bot_id..'Chek:Groups',msg.chat_id_)  
 local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
 local NameChat = chat.title_
@@ -5039,7 +5039,7 @@ if AddChannel(msg.sender_user_id_) == false then
 send(msg.chat_id_, msg.id_,'👥| لا تستطيع استخدام البوت يرجى الاشتراك في القناة حتى تتمكن من استخدام الاوامر \n 📌| اشترك هنا @DEVBLACK')
 return false
 end
-send(msg.chat_id_, msg.id_,'??| ارسل الكلمه التري تريد اضافتها')
+send(msg.chat_id_, msg.id_,'📥| ارسل الكلمه التري تريد اضافتها')
 database:set(bot_id..'Set:Rd'..msg.sender_user_id_..':'..msg.chat_id_,true)
 return false 
 end
