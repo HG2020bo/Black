@@ -7116,7 +7116,7 @@ if result.status_.ID == "UserStatusRecently" and result.profile_photo_ ~= false 
 sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, taha.photos_[0].sizes_[1].photo_.persistent_id_,get_id_text)       
 else 
 if result.status_.ID == "UserStatusEmpty" and result.profile_photo_ == false then
-send(msg.chat_id_, msg.id_,'['..get_id_text..']\n📬| لا يمكنني عرض صورتك لانك قمت بحظر البوت\n')   
+send(msg.chat_id_, msg.id_,'['..get_id_text..']')   
 else
 send(msg.chat_id_, msg.id_, '\n📬| ليس لديك صور في حسابك \n['..get_id_text..']')      
 end 
