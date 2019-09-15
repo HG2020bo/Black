@@ -6810,7 +6810,6 @@ end
 if text == 'تفعيل الايدي بالصوره' and Manager(msg) then   
 if database:get(bot_id..'Bot:Id:Photo'..msg.chat_id_)  then
 database:del(bot_id..'Bot:Id:Photo'..msg.chat_id_) 
-database:del(bot_id..'Bot:Id'..msg.chat_id_) 
 Text = '\n📫| تم تفعيل الايدي بالصور ' 
 else
 Text = '\n📫| بالتاكيد تم تفعيل الايدي بالصوره '
@@ -6820,7 +6819,6 @@ end
 if text == 'تعطيل الايدي بالصوره' and Manager(msg) then  
 if not database:get(bot_id..'Bot:Id:Photo'..msg.chat_id_)  then
 database:set(bot_id..'Bot:Id:Photo'..msg.chat_id_,true) 
-database:set(bot_id..'Bot:Id'..msg.chat_id_,true) 
 Text = '\n📫| تم تعطيل الايدي بالصوره' 
 else
 Text = '\n📫| بالتاكيد تم تعطيل الايدي بالصوره'
@@ -7071,7 +7069,7 @@ Text = '\n📫| بالتاكيد تم تعطيل امر اطردني'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == ("ايدي") and msg.reply_to_message_id_ == 0 then
+if text == ("ايدي") and msg.reply_to_message_id_ == 0 and not database:get(bot_id..'Bot:Id'..msg.chat_id_) then      
 if not database:sismember(bot_id..'Spam:Texting'..msg.sender_user_id_,text) then
 database:sadd(bot_id..'Spam:Texting'..msg.sender_user_id_,text) 
 tdcli_function ({ID = "GetChatMember",chat_id_ = msg.chat_id_,user_id_ = msg.sender_user_id_},function(arg,da)  tdcli_function ({ ID = "SendChatAction",  chat_id_ = msg.sender_user_id_, action_ = {  ID = "SendMessageTypingAction", progress_ = 100}  },function(arg,ta)  tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)  tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = msg.sender_user_id_,offset_ = 0,limit_ = 1},function(extra,taha,success) 
@@ -7100,7 +7098,7 @@ local tahaa = {
 " كشخه برب 😉💘"
 }
 local rdphoto = tahaa[math.random(#tahaa)]
-if not database:get(bot_id..'Bot:Id'..msg.chat_id_) then      
+if not database:get(bot_id..'Bot:Id:Photo'..msg.chat_id_) then      
 local get_id_text = database:get(bot_id.."KLISH:ID"..msg.chat_id_)
 if get_id_text then
 get_id_text = get_id_text:gsub('#rdphoto',rdphoto) 
@@ -7133,7 +7131,6 @@ end
 end
 end
 else
-if database:get(bot_id..'Bot:Id:Photo'..msg.chat_id_) then      
 local get_id_text = database:get(bot_id.."KLISH:ID"..msg.chat_id_)
 if get_id_text then
 get_id_text = get_id_text:gsub('#rdphoto',rdphoto) 
@@ -7150,7 +7147,7 @@ else
 send(msg.chat_id_, msg.id_,'[\n╗ ايديك ← '..msg.sender_user_id_..'\n╣ معرفك ← '..username..'\n╣ رتبتك ← '..Rutba(msg.sender_user_id_,msg.chat_id_)..'\n╣ المستوئ ← '..Total_Msg(Msguser)..'\n╣ رسائلك ← '..Msguser..'\n╝ السحكات ← '..edit..']\n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉')   
 end
 end
-end
+
 end,nil)
 end,nil)
 end,nil)
