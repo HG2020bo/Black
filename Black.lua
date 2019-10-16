@@ -3760,7 +3760,7 @@ if (data and data.code_ and data.code_ == 400 and data.message_ == "CHAT_ADMIN_R
 send(msg.chat_id_, msg.id_,'⚠| ليس لدي صلاحية حظر المستخدمين يرجى تفعيلها !') 
 return false  
 end
-if (data and data.code_ and data.code_ == 3) then 
+if msg.can_be_deleted_ == false then 
 send(msg.chat_id_, msg.id_,'🚸| البوت ليس ادمن يرجى ترقيتي !') 
 return false  
 end
@@ -3805,7 +3805,7 @@ if (data and data.code_ and data.code_ == 400 and data.message_ == "CHAT_ADMIN_R
 send(msg.chat_id_, msg.id_,'⚠| ليس لدي صلاحية حظر المستخدمين يرجى تفعيلها !') 
 return false  
 end
-if (data and data.code_ and data.code_ == 3) then 
+if msg.can_be_deleted_ == false then 
 send(msg.chat_id_, msg.id_,'🚸| البوت ليس ادمن يرجى ترقيتي !') 
 return false  
 end
@@ -3847,7 +3847,7 @@ if (data and data.code_ and data.code_ == 400 and data.message_ == "CHAT_ADMIN_R
 send(msg.chat_id_, msg.id_,'⚠| ليس لدي صلاحية حظر المستخدمين يرجى تفعيلها !') 
 return false  
 end
-if (data and data.code_ and data.code_ == 3) then 
+if msg.can_be_deleted_ == false then 
 send(msg.chat_id_, msg.id_,'🚸| البوت ليس ادمن يرجى ترقيتي !') 
 return false  
 end
@@ -4090,7 +4090,7 @@ if (data and data.code_ and data.code_ == 400 and data.message_ == "CHAT_ADMIN_R
 send(msg.chat_id_, msg.id_,'⚠| ليس لدي صلاحية حظر المستخدمين يرجى تفعيلها !') 
 return false  
 end
-if (data and data.code_ and data.code_ == 3) then 
+if msg.can_be_deleted_ == false then 
 send(msg.chat_id_, msg.id_,'🚸| البوت ليس ادمن يرجى ترقيتي !') 
 return false  
 end
@@ -4137,7 +4137,7 @@ if (data and data.code_ and data.code_ == 400 and data.message_ == "CHAT_ADMIN_R
 send(msg.chat_id_, msg.id_,'⚠| ليس لدي صلاحية حظر المستخدمين يرجى تفعيلها !') 
 return false  
 end
-if (data and data.code_ and data.code_ == 3) then 
+if msg.can_be_deleted_ == false then 
 send(msg.chat_id_, msg.id_,'🚸| البوت ليس ادمن يرجى ترقيتي !') 
 return false  
 end
@@ -4146,6 +4146,7 @@ usertext = '\n👤| العضو » ['..result.title_..'](t.me/'..(username or 'DE
 status  = '\n📫| تم حظره من المجموعه'
 texts = usertext..status
 chat_kick(msg.chat_id_, result.id_)
+send(msg.chat_id_, msg.id_, texts)
 end,nil)   
 end
 else
@@ -4179,7 +4180,7 @@ if (data and data.code_ and data.code_ == 400 and data.message_ == "CHAT_ADMIN_R
 send(msg.chat_id_, msg.id_,'⚠| ليس لدي صلاحية حظر المستخدمين يرجى تفعيلها !') 
 return false  
 end
-if (data and data.code_ and data.code_ == 3) then 
+if msg.can_be_deleted_ == false then 
 send(msg.chat_id_, msg.id_,'🚸| البوت ليس ادمن يرجى ترقيتي !') 
 return false  
 end
